@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  A clean, local-first debloater and optimizer for Windows 10 and 11 — with a proper GUI and a scriptable CLI.
+  A free, open-source Windows 10/11 debloater and optimizer — with a clean GUI and a scriptable PowerShell CLI.
 </p>
 
 <p align="center">
@@ -15,12 +15,13 @@
   <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-none-15803D">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-15803D">
   <a href="https://github.com/horizonbymuneeb/WinDebloat/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/horizonbymuneeb/WinDebloat?color=2563EB"></a>
+  <a href="https://github.com/horizonbymuneeb/WinDebloat/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/horizonbymuneeb/WinDebloat/actions/workflows/ci.yml/badge.svg"></a>
   <a href="https://github.com/horizonbymuneeb"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-@horizonbymuneeb-181717?logo=github&logoColor=white"></a>
 </p>
 
 ![WinDebloat dashboard](assets/screenshot.png)
 
-WinDebloat removes curated preinstalled apps, trims telemetry and background noise, and applies reversible performance tweaks. Everything runs locally from a single folder — no installers, no cloud calls, no third-party dependencies.
+**WinDebloat** is a Windows 10 and 11 debloater and optimizer. It removes curated preinstalled apps, trims telemetry and background noise, and applies reversible performance tweaks — from a clean GUI or a scriptable PowerShell CLI. Everything runs locally from a single extracted folder: no installers, no cloud calls, no third-party dependencies.
 
 ## Features
 
@@ -34,6 +35,19 @@ WinDebloat removes curated preinstalled apps, trims telemetry and background noi
 - **Presets** — Safe, Balanced and Aggressive configurations in the GUI.
 - **Dry run** — preview every action without changing anything.
 - **Live log** — watch the engine output in real time; every run is transcribed to `logs/`.
+
+## Why WinDebloat?
+
+| | Typical debloat script | WinDebloat |
+| --- | --- | --- |
+| Safe defaults | Varies by script | Curated list; protected components are never touched |
+| Preview changes | Rarely | Dry run for every action |
+| Restore point | Sometimes | Attempted before changes |
+| Keep list | Rarely | Wildcard keep list for protected packages |
+| Interface | CLI only | GUI and CLI share the same engine |
+| Logs | Sometimes | Every run is logged |
+| Dependencies | Varies | None — built-in PowerShell only |
+| License | Varies | MIT, fully open source |
 
 ## Safety
 
@@ -77,11 +91,11 @@ For a one-click CLI run with safe defaults, use `OneClick-Debloat.bat` instead.
 
 | Dashboard | App Cleanup |
 | --- | --- |
-| ![Dashboard](assets/screenshot.png) | ![App Cleanup](assets/screenshot-apps.png) |
+| ![WinDebloat dashboard on Windows 11](assets/screenshot.png) | ![WinDebloat App Cleanup page](assets/screenshot-apps.png) |
 | **Performance** | **Privacy** |
-| ![Performance](assets/screenshot-performance.png) | ![Privacy](assets/screenshot-privacy.png) |
+| ![WinDebloat Performance page](assets/screenshot-performance.png) | ![WinDebloat Privacy page](assets/screenshot-privacy.png) |
 | **Advanced** | **Activity Log** |
-| ![Advanced](assets/screenshot-advanced.png) | ![Activity Log](assets/screenshot-log.png) |
+| ![WinDebloat Advanced page](assets/screenshot-advanced.png) | ![WinDebloat Activity Log page](assets/screenshot-log.png) |
 
 ## CLI usage
 
@@ -134,9 +148,16 @@ WinDebloat/
 ├─ assets/
 │  ├─ icons/             # SVG icon set used by the GUI
 │  ├─ logo.svg
-│  └─ screenshot.png
+│  ├─ screenshot.png
+│  └─ social-preview.png # Repository social preview (1280x640)
+├─ tools/
+│  └─ validate.ps1       # Syntax, C# compile and SVG validation
+├─ .github/              # CI workflow, issue and PR templates
 ├─ Debloat-GUI.bat       # GUI launcher
 ├─ OneClick-Debloat.bat  # CLI launcher
+├─ CONTRIBUTING.md
+├─ SECURITY.md
+├─ CHANGELOG.md
 └─ logs/                 # Created at runtime
 ```
 
@@ -146,9 +167,39 @@ WinDebloat/
 - The CLI engine is a single PowerShell script. It uses built-in cmdlets only and writes a transcript to `logs/`.
 - Nothing is downloaded or sent anywhere at runtime.
 
+## FAQ
+
+### Is WinDebloat safe to run?
+
+Yes, when you review the options first. Safe defaults remove only curated bloatware and telemetry, protected components are never touched, a restore point is attempted before changes, and every run is logged. Risky tweaks are clearly badged and require acknowledgement in the GUI.
+
+### Will it remove Microsoft Store, Edge or Defender?
+
+No. Microsoft Store, Microsoft Edge, Microsoft Defender, Windows Update and printing are intentionally left untouched. Optional Windows Update cache cleanup does not uninstall or disable Windows Update.
+
+### Does it work on Windows 11?
+
+Yes. WinDebloat supports Windows 10 and Windows 11 and targets the built-in Windows PowerShell 5.1, so no extra runtime is needed.
+
+### Can I undo the changes?
+
+Most tweaks are reversible through Windows Settings, the CLI or a restore point. Removed Store apps can be reinstalled from the Microsoft Store, and the OneDrive client can be reinstalled. Always keep a restore point before a real run.
+
+### Does it need an internet connection?
+
+No. The app runs entirely offline from the extracted folder. Only downloading the release or reinstalling Store apps needs a connection.
+
+### Which apps are removed?
+
+A curated list of preinstalled Store apps, games and hubs. `-Aggressive` also includes Outlook, Teams, Phone Link, Media Player and Copilot. Use `-KeepApps` to protect specific packages.
+
 ## Contributing
 
-Issues and pull requests are welcome. Please keep changes PowerShell 5.1 compatible and test with `-DryRun` before opening a PR.
+Issues and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the development setup and guidelines, run `.\tools\validate.ps1` before opening a PR, and test engine changes with `-DryRun` first.
+
+For security problems, follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
+
+If WinDebloat helped you, a star helps other people find it.
 
 ## License
 

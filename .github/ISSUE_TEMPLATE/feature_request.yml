@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest an improvement, a new tweak or a documentation change
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do, and what is missing today?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior you would like. Mention the CLI switch or GUI option you imagine.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk level
+      description: Risky options must be reversible or clearly badged in the GUI.
+      options:
+        - Low - safe and easily reversible
+        - Medium - changes behavior but can be undone
+        - High - can break workflows or remove components
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and discussions first
+          required: true
+        - label: This request fits the project scope (Windows 10/11 debloat and optimization)
+          required: true
