@@ -14,6 +14,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-2.1.0-2563EB">
   <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-none-15803D">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-15803D">
+  <a href="https://github.com/horizonbymuneeb/WinDebloat/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/horizonbymuneeb/WinDebloat?color=2563EB"></a>
   <a href="https://github.com/horizonbymuneeb"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-@horizonbymuneeb-181717?logo=github&logoColor=white"></a>
 </p>
 
@@ -49,7 +50,7 @@ WinDebloat removes curated preinstalled apps, trims telemetry and background noi
 
 **Requirements:** Windows 10 or 11, Windows PowerShell 5.1, administrator rights.
 
-1. Download or clone this repository.
+1. Download the [latest release](https://github.com/horizonbymuneeb/WinDebloat/releases/latest) ZIP and extract it, or clone this repository.
 2. Double-click `Debloat-GUI.bat` and approve the UAC prompt.
 3. Pick a preset, run a **Dry run**, then click **Run now**.
 
