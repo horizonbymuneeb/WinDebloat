@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <title>WinDebloat</title>
+  <rect width="256" height="256" rx="56" fill="#2563EB"/>
+  <path d="M128 200s64-32 64-80V72l-64-24-64 24v48c0 48 64 80 64 80z" fill="#FFFFFF"/>
+  <path d="M102 128l18 18 36-36" stroke="#2563EB" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
